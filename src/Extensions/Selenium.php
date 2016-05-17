@@ -227,6 +227,23 @@ abstract class Selenium extends \PHPUnit_Framework_TestCase implements Emulator,
 
         return $this;
     }
+    
+    /**
+     * Fill in an input with the given text that cannot be targetted 
+     * using traditional name or id properties
+     * For example ->type('4242424242424242', 'input[data-stripe="number"]')
+     * 
+     * @param  string $text
+     * @param  string $element
+     * @return static
+     */
+    public function typeByCss($text, $element)
+    {
+        $value = ['value' => [$text]];
+        $this->findByCss($element)->postValue($value);
+
+        return $this;
+    }
 
     /**
      * Check a checkbox.
