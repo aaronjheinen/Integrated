@@ -510,10 +510,14 @@ abstract class Selenium extends \PHPUnit_Framework_TestCase implements Emulator,
         try {
             $this->findByNameOrId($element);
         } catch (InvalidArgumentException $e) {
-            throw new InvalidArgumentException(
-                "Hey, what's happening... Look, I waited {$timeout} milliseconds to see an element with " .
-                "a name or id of '{$element}', but no luck. \nIf you could take a look, that'd be greaaattt..."
-            );
+             try {
+                $this->findByCss($element);
+            } catch (InvalidArgumentException $e) {
+                throw new InvalidArgumentException(
+                    "Hey, what's happening... Look, I waited {$timeout} milliseconds to see an element with " .
+                    "a name or id of '{$element}', but no luck. \nIf you could take a look, that'd be greaaattt..."
+                );
+            }
         }
 
         return $this;
