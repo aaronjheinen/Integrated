@@ -9,10 +9,10 @@
         }
     ],
     "require": {
-        "laracasts/testdummy": "~2.1",
-        "symfony/dom-crawler": "~2.5",
-        "symfony/css-selector": "~2.5",
-        "fabpot/goutte": "~3.1",
+        "laracasts/testdummy": "~2.3",
+        "symfony/dom-crawler": "~3.0",
+        "symfony/css-selector": "~3.0",
+        "fabpot/goutte": "~3.2",
         "instaclick/php-webdriver": "~1.4"
     },
     "autoload": {
